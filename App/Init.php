@@ -34,7 +34,9 @@ class Init {
         array_walk($this->routes, function($route) use($url) {            
             #o erro sempre aparece aqui!!
             if ($url  == $route['route']) {
-                echo "Encontrou!!";
+                $class = "App\\Controllers\\".ucfirst($route['controller']);
+                $controller = new $class;
+                $controller->$route['action'];
             }  
         });
     }
