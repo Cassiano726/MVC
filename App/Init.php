@@ -23,9 +23,9 @@ class Init {
     }
 
     public function initRoutes() {
-
-        $arrayRoutes = array('home' => '/', 'controller' => 'index', 'action' => 'index');
-        $arrayRoutes = array('home' => '/empresa', 'controller' => 'index', 'action' => 'empresa');
+        $arrayRoutes = [];
+        $arrayRoutes[] = array('route' => '/', 'controller' => 'index', 'action' => 'index');
+        $arrayRoutes[] = array('route' => '/empresa', 'controller' => 'index', 'action' => 'empresa');
         $this->setRoutes($arrayRoutes);
     }
 
@@ -36,7 +36,7 @@ class Init {
             if ($url  == $route['route']) {
                 $class = "App\\Controllers\\".ucfirst($route['controller']);
                 $controller = new $class;
-                $controller->$route['action'];
+                $controller->$route['action']();
             }  
         });
     }

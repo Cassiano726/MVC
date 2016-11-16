@@ -15,7 +15,7 @@ namespace App\Controllers;
  */
 class Index {
     //put your code here
-    public function empresa() {
+    public function index() {
         
         echo "Controller: Index, Action: Empresa";
     }
